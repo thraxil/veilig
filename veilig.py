@@ -24,6 +24,7 @@ def upload_file(f, bucket, object_name=None):
         return False
     return True
 
+
 prev = None
 
 cnt = 0
@@ -40,13 +41,14 @@ while True:
         frameDelta = cv2.absdiff(prev, gray)
         thresh = cv2.threshold(frameDelta, 25, 255, cv2.THRESH_BINARY)[1]
         thresh = cv2.dilate(thresh, None, iterations=2)
-        contours,hierarchy = cv2.findContours(thresh.copy(), cv2.RETR_EXTERNAL,
-                                              cv2.CHAIN_APPROX_SIMPLE)
+        contours, hierarchy = cv2.findContours(
+            thresh.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
         for c in contours:
             if cv2.contourArea(c) < MOTION_THRESHOLD:
                 continue
             # (x, y, w, h) = cv2.boundingRect(c)
-            # rect = cv2.rectangle(video_frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
+            # rect = cv2.rectangle(video_frame, (x, y),
+            #                      (x + w, y + h), (0, 255, 0), 2)
             motion = True
             # cv2.imwrite('countour.jpg', rect)
     n = datetime.utcnow()
