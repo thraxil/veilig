@@ -1,0 +1,15 @@
+{
+    "Rules": [
+        {
+            "Expiration": {
+                "Days": 21
+            },
+            "ID": "delete-old",
+            "Filter": {
+                "Prefix": ""
+            },
+            "Status": "Enabled"
+        }
+    ]
+}
+(
