@@ -9,3 +9,6 @@ create_bucket:
 
 get_images:
 	/usr/local/bin/aws s3 cp s3://thraxil-veilig/ /tmp/veilig/ --recursive
+
+build:
+	docker build . -t thraxil/veilig:latest
